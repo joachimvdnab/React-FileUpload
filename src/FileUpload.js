@@ -316,6 +316,7 @@ const FileUpload = createClass({
         }
 
         xhr.onreadystatechange = () => {
+            this.refs['ajax_upload_file_input'].blur()
             /*xhr finish*/
             try {
                 if (xhr.readyState == 4 && xhr.status >= 200 && xhr.status < 400) {
@@ -333,6 +334,7 @@ const FileUpload = createClass({
         }
         /*xhr error*/
         xhr.onerror = () => {
+            this.refs['ajax_upload_file_input'].blur()
             try {
                 const resp = this.dataType == 'json' ? JSON.parse(xhr.responseText) : xhr.responseText
                 this.uploadError({type: 'XHRERROR', message: resp})
