@@ -201,7 +201,6 @@ const FileUpload = createClass({
     commonChooseFile() {
         const jud = this.beforeChoose()
         if (jud != true && jud != undefined) return
-        this.refs['ajax_upload_file_input'].focus()
         this.refs['ajax_upload_file_input'].click()
     },
     /*现代浏览器input change事件。File API保存文件*/
